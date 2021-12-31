@@ -72,3 +72,83 @@ Error: The database connection must be open to store files
 
 {"message":"Error when trying upload many files: Error: The database connection must be open to store files"}
 ```
+
+Attempt to connect to the database
+```java
+localhost:8080/files
+```
+
+Output
+```java
+{"message":"connect ECONNREFUSED 127.0.0.1:27017"}
+```
+
+Mongod port
+```java
+localhost:27017
+```
+
+Output
+```java
+It looks like you are trying to access MongoDB over HTTP on the native driver port.
+```
+
+Start the mongod database server
+
+```java
+mongod
+```
+
+Go to route files
+```java
+http://localhost:8080/files
+```
+
+Output
+```java
+{"message":"No files found!"}
+
+
+Upload a file
+
+```java
+http://localhost:8080/
+```
+
+Output
+```java
+{"message":"Files have been uploaded."}
+```
+
+Upload a file
+
+```java
+http://localhost:8080/files
+```
+
+Output
+```java
+[{"name":"1640923740720-bezkoder-step5d.png","url":"http://localhost:8080/files/1640923740720-bezkoder-step5d.png"}]
+```
+
+Console Output
+```java
+Running at localhost:8080
+[
+  {
+    fieldname: 'file',
+    originalname: 'step5d.png',
+    encoding: '7bit',
+    mimetype: 'image/png',
+    id: new ObjectId("61ce825c48a0585965e88d45"),
+    filename: '1640923740720-bezkoder-step5d.png',
+    metadata: null,
+    bucketName: 'photos',
+    chunkSize: 261120,
+    size: 118473,
+    md5: undefined,
+    uploadDate: 2021-12-31T04:09:00.799Z,
+    contentType: 'image/png'
+  }
+]
+```
