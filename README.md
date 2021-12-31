@@ -3,6 +3,8 @@
 For more detail, please visit:
 > [How to upload/store images in MongoDB using Node.js & Express](https://bezkoder.com/node-js-upload-multiple-images-mongodb/)
 
+https://github.com/bezkoder/node-js-upload-image-mongodb
+
 Front-end Apps to work with this Node.js Server:
 - [Angular 8 Client](https://bezkoder.com/angular-multiple-files-upload/) / [Angular 10 Client](https://bezkoder.com/angular-10-file-upload/) / [Angular 11 Client](https://bezkoder.com/angular-11-file-upload/) / [Angular 12 Client](https://bezkoder.com/angular-12-file-upload/)
 
@@ -49,4 +51,24 @@ npm install
 ### Run
 ```
 node src/server.js
+```
+
+Output
+```java
+Running at localhost:8080
+Error: The database connection must be open to store files
+    at GridFsStorage._handleFile (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/multer-gridfs-storage/lib/gridfs.js:175:12)
+    at /mnt/ap/ap/node-js-upload-image-mongodb/node_modules/multer/lib/make-middleware.js:145:17
+    at allowAll (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/multer/index.js:8:3)
+    at wrappedFileFilter (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/multer/index.js:44:7)
+    at Busboy.<anonymous> (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/multer/lib/make-middleware.js:115:7)
+    at Busboy.emit (events.js:400:28)
+    at Busboy.emit (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/busboy/lib/main.js:38:33)
+    at PartStream.<anonymous> (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/busboy/lib/types/multipart.js:213:13)
+    at PartStream.emit (events.js:400:28)
+    at HeaderParser.<anonymous> (/mnt/ap/ap/node-js-upload-image-mongodb/node_modules/dicer/lib/Dicer.js:51:16) {
+  storageErrors: []
+}
+
+{"message":"Error when trying upload many files: Error: The database connection must be open to store files"}
 ```
